@@ -5,9 +5,11 @@ echo "대림대학교";
 print_r($config);
 //같은 경로를 지정해주지 않고 웹사이트상에서 사용자가
 //접속을 하지 못하게 한다.
-
+require "../Loading.php";
+/*
 require "../Module/Database/Database.php";
-require "../Module/Database/table.php";
+require "../Module/Database/table.php"; 
+*/
     
 $db = new Database($config);
 $table = new Table($db);
