@@ -8,11 +8,6 @@ print_r($config);
 
 require "../Module/Database/Database.php";
 require "../Module/Database/table.php";
-
-
-$config = include "dbconf.php";
-require "database.php";
-require "table.php";
     
 $db = new Database($config);
 $table = new Table($db);
