@@ -1,6 +1,7 @@
 <?php
 $config = include "../dbconf.php";
 require "../Loading.php";
+
 $uri = $_SERVER['REQUEST_URI'];
 $uris = explode("/",$uri); // 파란책
 // print_r($uris);
