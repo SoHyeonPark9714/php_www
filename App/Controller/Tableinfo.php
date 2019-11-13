@@ -6,32 +6,33 @@ class TableInfo
     // 생성자
     public function __construct($db)
     {
-        //echo __CLASS__;
+        // echo __CLASS__;
         $this->db = $db;
     }
 
     public function main()
     {
-        $html = new \Module\HTML\HTMLTable;
+        $html = new \Module\Html\HtmlTable;
 
         $uri = $_SERVER['REQUEST_URI'];
-        $uris = explode("/",$uri);
+        $uris = explode("/",$uri); // 파란책
 
-        //echo "메인 호출";
+        // echo "메인 호출이에요.";
         $query = "DESC ".$uris[2];
         $result = $this->db->queryExecute($query);
 
         $count = mysqli_num_rows($result);
-        $rows = []; //배열 초기화
-        $content = "";
-        for($i=0; $i<$count; $i++){
+        $content = ""; // 초기화
+        $rows = []; // 배열 초기화
+        for ($i=0;$i<$count;$i++) {
             $row = mysqli_fetch_object($result);
-            $rows []= $row; //배열 추가
+            $rows []= $row; // 배열 추가 (2차원 배열)
         }
         $content = $html->table($rows);
 
         $body = file_get_contents("../Resource/desc.html");
-        $body = str_replace("{{content}}",$content, $body);
+        $body = str_replace("{{content}}",$content, $body); // 데이터 치환
         echo $body;
     }
+
 }
