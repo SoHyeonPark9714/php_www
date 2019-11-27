@@ -1,6 +1,6 @@
 <?php
 namespace App\Controller;
-class Databases
+class Databases extends Controller
 {
     private $db;
     // 생성자
