@@ -1,4 +1,8 @@
 <?php
+//함수, 상수를 지정
+define("START", microtime(true));
+
+
 $config = include "../dbconf.php";
 require "../Loading.php";
 
@@ -19,9 +23,11 @@ if(isset($uris[1]) && $uris[1]) {
     $tables = new $controllerName ($db);
     
     // 클래스의 메인이 처음으로 동작하는 것로 정해요.
+    //호출.
     $tables->main();
 
 } else {
+    //M(model:database)
     // 처음 페이지 에요.
     // echo "처음 페이지 에요.";
     $body = file_get_contents("../Resource/index.html");
@@ -39,3 +45,20 @@ if(isset($uris[1]) && $uris[1]) {
 
 // $desc = new \App\Controller\TableInfo;
 // $desc->main();
+
+
+function shutdown(){
+    // echo "시작시간=".START."<br>";
+    $endtime = microtime(true);
+    // echo "종료시간=".$endtime;
+
+    $running  = $endtime- START;
+    echo "실행시간:".$running;
+    //시작 시간과 종료시간을 정해주면 이렇게 정해주면 찍어서 차이값을 구하면 얼마나 걸리는지 알수 있다.
+}
+// echo shutdown();
+//프로그램이 종료되면,자동으로 shutdown 함수를 호출해 줍니다.
+register_shutdown_function("shutdown");
+
+// CONST ENDTIME = microtime(true);
+

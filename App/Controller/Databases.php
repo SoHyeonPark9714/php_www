@@ -7,6 +7,8 @@ class Databases extends Controller
     public function __construct($db)
     {
         // echo __CLASS__;
+        //외부에서 넘겨오는 DB정보를 내부에 저장한다.
+        //내부에 저장한다 의미는 ==> 객체의 상태값 저장한다.
         $this->db = $db; 
     }
 
