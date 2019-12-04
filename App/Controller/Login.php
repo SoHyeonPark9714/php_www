@@ -34,7 +34,7 @@ class Login extends Controller
 
 
                     //aaa@gmail.com
-                    if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) === false{
+                    if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false){
                         echo "잘못된 이메일주소 입니다.";
                         exit();
                     }

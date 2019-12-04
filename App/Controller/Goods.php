@@ -94,6 +94,7 @@ class Goods extends Controller
         $body = str_replace("{{new}}","/goods/new", $body);
         echo $body;
     }
+   
     private function cate()
     {
         $query = "SELECT * from category";
