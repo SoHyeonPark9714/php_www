@@ -29,10 +29,10 @@ class Insta extends Controller
         $result = $this->db->queryExecute($query);
         $data = mysqli_fetch_object($result);
         // print_r($data);
-        $body = file_get_contents("../Resource/goods_view.html");
-        $body = str_replace("{{goodname}}",$data->goodname, $body); // 데이터 치환
+        $body = file_get_contents("../Resource/insta_view.html");
+        $body = str_replace("{{username}}",$data->username, $body); // 데이터 치환
         $body = str_replace("{{images}}","<img src='/images/".$data->images."' width='100%'>", $body); // 데이터 치환
-        $body = str_replace("{{price}}",$data->price, $body); // 데이터 치환
+        $body = str_replace("{{contents}}",$data->contents, $body); // 데이터 치환
         $body = str_replace("{{date}}",$data->date, $body);
         $body = str_replace("{{id}}",$data->id, $body);
         echo $body;
@@ -73,7 +73,7 @@ class Insta extends Controller
             $link = $_SERVER['REQUEST_URI']."/".$row->id;
             $content .= "<div class=\"col-sm\">";
             $content .="<div>".$row->username."</div>";
-            $content .="<div><a href='$link'><img src='/images/".$row->images."' width='50%' /></a></div>";
+            $content .="<div><a href='$link'><img src='/images/".$row->images."' width='40%'/></a></div>";
             $content .="<div>".$row->contents."</div>";
             $content .="<div>".$row->date."</div>";
             $content .= "</div>";
