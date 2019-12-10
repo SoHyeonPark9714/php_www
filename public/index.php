@@ -1,6 +1,6 @@
 <?php
 //함수, 상수를 지정
-define("START", microtime(true));
+// define("START", microtime(true));
 
 
 $config = include "../dbconf.php";
@@ -58,7 +58,7 @@ function shutdown(){
 }
 // echo shutdown();
 //프로그램이 종료되면,자동으로 shutdown 함수를 호출해 줍니다.
-register_shutdown_function("shutdown");
+// register_shutdown_function("shutdown");
 
 // CONST ENDTIME = microtime(true);
 
