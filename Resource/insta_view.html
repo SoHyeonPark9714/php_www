@@ -57,6 +57,7 @@
                 <div class="col-sm-10">
                     <h2>상세글</h2>
                     <div class="row">
+                        {{id}}
                         <div class="col-sm-6">
                             {{images}}
                         </div>
@@ -66,8 +67,9 @@
                             {{contents}}<br>
                         </div class="btn">
                         <button type="button " class="btn btn-outline-info" onClick="history.go(-1)">메인으로 가기</button>
-                        <button type="button " class="btn btn-outline-success" id="update">수정하기</button>
-                        <button type="button " class="btn btn-outline-danger" id="delete">삭제하기</button>
+                        <button type="button " class="btn btn-outline-success" >삭제하기</button>
+                        <a href="{{delete}}">삭제하기</a>
+                        <a href="{{edit}}">수정하기</a>
                     </div>
                 </div>
             </div>
@@ -83,30 +85,21 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <script>
+    <!-- <script>
 
-        var update = document.getElementById("update");
-        update.addEventListener("click", function () {
-            var addnew = confirm("글을 수정하시겠습니까?");
-            if (addnew == true) {
-                document.location.href = "/select/edit";
-                //somthing
-            } else if (addnew == false) {
-                alert("글을 수정하지 않았습니다.");
-            }
-        });
         var del = document.getElementById("delete");
         del.addEventListener("click", function () {
             var del = confirm("글을 삭제하시겠습니까?");
             if (del == true) {
-                document.location.href = "/select/delete";
+                var id = document.getElementById("id");
+                console.log(id);
+                // document.location.href = "/insta/delete";
                 //somthing
             } else if (del == false) {
-                alert("글을 삭제하지 않았습니다.");
+                alert("글을 삭제가 취소되었습니다.");
             }
         });
-
-    </script>
+    </script> -->
 </body>
 
 </html>

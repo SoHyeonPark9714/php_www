@@ -64,7 +64,7 @@ class Databases extends Controller
         }
         $content = $html->table($rows);
 
-        $body = file_get_contents("../Resource/database.html");
+        $body = file_get_contents("../Resource/insta.html");
         $body = str_replace("{{content}}",$content, $body); // 데이터 치환
         echo $body;
     }

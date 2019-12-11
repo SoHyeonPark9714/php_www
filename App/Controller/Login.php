@@ -54,7 +54,7 @@ class Login extends Controller
                             echo "세션 저장 성공";
 
                             // 페이지 이동
-                            header("location:"."/databases");
+                            header("location:"."/insta");
                         } else {
                             // 비밀번호가 맞지 않습니다.
                             echo "비밀번호가 맞지 않습니다.";
