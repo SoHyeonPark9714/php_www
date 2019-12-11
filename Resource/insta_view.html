@@ -1,41 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Instagram</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
-            body {
-                padding-top: 56px;
-            }
-            #Gomain{margin-top: 40px;}
-        </style>
-</head>
-<body>
-      <div class="container-fluid">
-            <div class="col-sm-10">
-                <h1>상세글</h1>
-                <div class="row">
-                      {{username}}
-                      {{images}}
-                      <p>{{contents}}</p>
-                        <button type="button "class="btn btn-success" href="/insta.html" id="Gomain">메인으로 가기</button>
-                  </div>
-            </div>        
-        </div>  
-    </div>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script>
-    const addBtn = document.getElementById("Gomain");
-    addBtn.addEventListener("click",function(){
-       // document.location.href = "/cartadd/1"; //get
-       document.forms.detail.submit();
-    });
+        body {
+            padding-top: 56px;
+        }
 
-</script>
+        .btn {
+            margin-top: 50px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        h2 {
+            font-weight: bolder;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            background-color: #cccccc;
+        }
+
+        body {
+            padding-top: 56px;
+        }
+
+        .card {
+            margin-top: 10%;
+            margin-left: 10%;
+            margin-right: 10%;
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Image and text -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="./insta.html">Instagram</a>
+            </div>
+        </div>
+    </nav>
+    <div class="card">
+        <div class="card-body">
+            <div class="container-fluid">
+                <div class="col-sm-10">
+                    <h2>상세글</h2>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            {{images}}
+                        </div>
+                        <div class="col-sm-6">
+                            {{username}}
+                            {{date}}
+                            {{contents}}<br>
+                        </div class="btn">
+                        <button type="button " class="btn btn-outline-info" onClick="history.go(-1)">메인으로 가기</button>
+                        <button type="button " class="btn btn-outline-success" id="update">수정하기</button>
+                        <button type="button " class="btn btn-outline-danger" id="delete">삭제하기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+
+        var update = document.getElementById("update");
+        update.addEventListener("click", function () {
+            var addnew = confirm("글을 수정하시겠습니까?");
+            if (addnew == true) {
+                document.location.href = "/select/edit";
+                //somthing
+            } else if (addnew == false) {
+                alert("글을 수정하지 않았습니다.");
+            }
+        });
+        var del = document.getElementById("delete");
+        del.addEventListener("click", function () {
+            var del = confirm("글을 삭제하시겠습니까?");
+            if (del == true) {
+                document.location.href = "/select/delete";
+                //somthing
+            } else if (del == false) {
+                alert("글을 삭제하지 않았습니다.");
+            }
+        });
+
+    </script>
 </body>
+
 </html>

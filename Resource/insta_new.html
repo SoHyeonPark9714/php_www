@@ -1,47 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Instagram</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
-            body {
-                padding-top: 56px;
-            }
-            input{
-                margin-top: 20px;
-            }
-        </style>
+        body {
+            padding-top: 56px;
+        }
+
+        input {
+            margin-top: 20px;
+        }
+
+        .card {
+            margin-left: 20%;
+            margin-right: 20%;
+        }
+
+        h4 {
+            font-weight: bolder;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+        }
+
+        body {
+            padding-top: 56px;
+        }
+    </style>
 </head>
+
 <body>
-    <div class="container-fluid">
-        <div class="row">
-                    <h2>글쓰기</h2>
-                   <form name="insta" method="POST" enctype="multipart/form-data">
-                    <div class="form-group">
-                     사용자:<input type="text" name="username" class="form-control"id="exampleFormControlInput1"><br>
-                     사진넣기:<input type="file" name="images" class="form-control-file" id="exampleFormControlFile1"><br>
-                     글쓰기<input type="text" name="contents" class="form-control" id="exampleFormControlTextarea1" rows ="3"><br>
-                     <input type="submit" class="btn btn-primary" id="addContents" value="저장하기">
-                    </div>
-                   </form>            
-        </div>  
+    <!-- Image and text -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="./insta.html">Instagram</a>
+            </div>
+        </div>
+    </nav>
+    <div class="card">
+        <div class="card-body">
+            <h4>글쓰기</h4>
+            <form name="insta" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    사용자<input type="text" name="username" class="form-control" id="exampleFormControlInput1"><br>
+                    사진넣기<input type="file" name="images" class="form-control-file" id="exampleFormControlFile1"><br>
+                    글쓰기<input type="text" name="contents" class="form-control" id="exampleFormControlTextarea1"
+                        rows="3"><br>
+                    <input type="submit" class="btn btn-primary" id="addContents" value="저장하기">
+                </div>
+            </form>
+        </div>
     </div>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 <script>
-        var addContents = document.getElementById("addContents");
-        addContents.addEventListener("click",function(){
-            var addnew = confirm("글을 저장하시겠습니까?");
-            if(addnew ==true){
-                document.forms.detail.submit();
-            }else if(addnew ==false){
-                alert('저장을 하지 않았습니다');
-            }
-        });
-    </script>
+    var addContents = document.getElementById("addContents");
+    addContents.addEventListener("click", function () {
+        var addnew = confirm("글을 저장하시겠습니까?");
+        if (addnew == true) {
+            document.forms.detail.submit();
+        } else if (addnew == false) {
+            alert('저장을 하지 않았습니다');
+            alert('이전페이지로 돌아갑니다')
+            history.go(-1);
+        }
+    });
+</script>
+
 </html>

@@ -1,38 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Instagram</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
-            body {
-                padding-top: 56px;
-            }
-        </style>
+        body {
+            padding-top: 56px;
+        }
+
+        .card {
+            margin-left: 20%;
+            margin-right: 40%;
+        }
+
+        .addbtn {
+            width: 200px;
+            height: 40px;
+            margin-left: 10px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        nav {
+            background-color: #cccccc;
+        }
+
+        .main {
+            text-decoration: none;
+            color: snow;
+        }
+
+        body {
+            padding-top: 56px;
+        }
+    </style>
 </head>
-    <body>
+
+<body>
+    <!-- Image and text -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         
-                    {{content}}
-                    
-                   
-                
-            <a class="btn btn-primary btn-lg" href="{{new}}" role="button" id="addContents">글쓰기</a>       
-    
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <div class="container-fluid">
+            <div class="navbar-header">
+                    <a class="navbar-brand" href="#"><img src="../public/images/Instagram logo.png" width="100px" height="40px"/></a>
+            </div>
+        </div>
+    </nav>
+    </nav>
+    <div class="card">
+        <div class="card-body">
+            {{content}}
+        </div>
+        <div class="addbtn"><a class="btn btn-primary btn-lg" role="button" id="addContents">글쓰기</a></div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 <script>
-        var addContents = document.getElementById("addContents");
-        addContents.addEventListener("click",function(){
-            var addnew = confirm("글을작성하시겠습니까?");
-            if(addnew ==true){
-                document.forms.detail.submit();
-            }else if(addnew ==false){
-                alert('글작성을 취소하셨습니다');
-            }
-        });
-    </script>
+    var addContents = document.getElementById("addContents");
+    addContents.addEventListener("click", function () {
+        var addnew = confirm("글을작성하시겠습니까?");
+        if (addnew == true) {
+            document.location.href = "/insta/new";
+            // href="{{new}}"
+        } else if (addnew == false) {
+            alert('글작성을 취소하셨습니다');
+        }
+    });
+</script>
+
 </html>

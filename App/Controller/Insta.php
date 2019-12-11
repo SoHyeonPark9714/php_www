@@ -25,16 +25,16 @@ class Insta extends Controller
     private function detailView($id)
     {
          $query = "SELECT * from insta WHERE id = ".$id;
-        echo $query;
+        // echo $query;
         $result = $this->db->queryExecute($query);
         $data = mysqli_fetch_object($result);
         // print_r($data);
         $body = file_get_contents("../Resource/insta_view.html");
-        $body = str_replace("{{username}}",$data->username, $body); // 데이터 치환
-        $body = str_replace("{{images}}","<img src='/images/".$data->images."' width='100%'>", $body); // 데이터 치환
-        $body = str_replace("{{contents}}",$data->contents, $body); // 데이터 치환
+        $body = str_replace("{{username}}",$data->username."<br>", $body); // 데이터 치환
+        $body = str_replace("{{images}}","<img src='/images/".$data->images."' width='100%'><br>", $body); // 데이터 치환
         $body = str_replace("{{date}}",$data->date, $body);
-        $body = str_replace("{{id}}",$data->id, $body);
+        $body = str_replace("{{contents}}",$data->contents."<br>", $body); // 데이터 치환
+        $body = str_replace("{{id}}",$data->id."<br>", $body);
         echo $body;
         $query = "UPDATE insta SET `click`=`click`+1 where id='$id'";
         $result = $this->db->queryExecute($query);
@@ -64,7 +64,7 @@ class Insta extends Controller
         for ($i=0,$j=1;$i<$count;$i++,$j++) {
             $row = mysqli_fetch_object($result);
             // print_r($row);
-            if ($i%3 == 0) {
+            if ($i%1 == 0) {
                 $content .= "</div>
                 <div class=\"row\">
                 ";
@@ -72,7 +72,7 @@ class Insta extends Controller
             
             $link = $_SERVER['REQUEST_URI']."/".$row->id;
             $content .= "<div class=\"col-sm\">";
-            $content .="<div>".$row->username."</div>";
+            $content .="<div><a href='$link'>".$row->username."</a>(".$row->click.")</div><br>";
             $content .="<div><a href='$link'><img src='/images/".$row->images."' width='40%'/></a></div>";
             $content .="<div>".$row->contents."</div>";
             $content .="<div>".$row->date."</div>";
